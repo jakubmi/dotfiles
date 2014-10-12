@@ -1,0 +1,33 @@
+[user]
+	name = Jakub Misiorny
+	email = jmisiorny@bloomberg.net
+[push]
+	default = tracking
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[color]
+	ui = auto
+[core]
+	editor = vim
+	preloadindex = true
+[grep]
+	extendRegexp = true
+	lineNumber = true
+[alias]
+	g = grep --break --heading --line-number
+    s = status
+    l = log --pretty --decorate=full --graph
+	c = checkout
+	p = pull
+	rom = rebase origin/master
+
+[help]
+	autocorrect = 1
+[branch]
+	autosetuprebase = always
+[http]
+	sslverify = false
+	proxy = https://devproxy.bloomberg.com:82
+[url "https://github.com/"]
+	pushInsteadOf = ssh://sshproxy.dev.bloomberg.com:9001/
