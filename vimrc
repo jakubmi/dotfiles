@@ -19,11 +19,18 @@ color koehler
 
 set guifont=Inconsolata\ 14
 
+set splitbelow
+set splitright
+
+let mapleader = " "
+let g:EasyMotion_leader_key = "<Leader>"
 """""""""" VUNDLE
 let $GIT_SSL_NO_VERIFY = 'true'
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+Bundle 'christoomey/vim-tmux-navigator'
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
@@ -46,24 +53,38 @@ Bundle 'bling/vim-airline'
 
 Bundle 'scrooloose/nerdtree'
 
+Plugin 'KabbAmine/zeavim.vim' 
+
 filetype plugin indent on
 
 """""""""" VUNDLE END
 
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
 "let g:ycm_global_ycm_extra_conf = '/bb/mbigd/mbig1265/.ycm_extra_conf.py'
-let g:ycm_path_to_python_interpreter = '/opt/swt/bin/python2.7'
+"let g:ycm_path_to_python_interpreter = '/opt/swt/bin/python2.7'
 "let g:ycm_path_to_python_interpreter = '/bb/bin/bbpy2.7'
-let g:ycm_filetype_whitelist = { 'cpp': 1, 'py': 1, 'h': 1} 
+"
+"let g:ycm_filetype_whitelist = { 'cpp': 0, 'py': 1, 'h': 0} 
+
 let g:ycm_server_log_level = 'debug'
-"let g:ycm_confirm_extra_conf = 0
+let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
+let g:ycm_confirm_extra_conf = 0
 
 
-let g:airline_powerline_fonts = 1
+
+"let g:jedi#auto_vim_configuration = 0
+"let g:jedi#popup_select_first = 0
+"let g:jedi#completion_enabled = 0
+
+"let g:airline_powerline_fonts = 1
 
 syntax on
 "source ~/.vim/skunk_cursor.vim
 
-map <c-b> :CtrlPBuffer<CR>
+"map <c-b> :CtrlPBuffer<CR>
+
+set  completeopt=preview,menuone,longest
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -73,9 +94,6 @@ let g:ctrlp_custom_ignore = {
 
 set tags+=tags
 set nu 
-
-"let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 
 "#set complete-=i
 filetype plugin on
